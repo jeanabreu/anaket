@@ -1,0 +1,15 @@
+<ion-view title="{{$root.appLanguage.WISHLISH_TEXT}}">
+	<ion-content class="has-footer">
+		<div class="product-list">
+			<div class="product-item" ng-repeat="product in products" ng-click="openProduct({{product[2].id}})">
+				<img actual-src="{{product[2].images[0].src}}" ng-src="img/placeholder.png">
+				<div class="meta text-center">
+					<h2 class="name" ng-bind-html="product[2].name"></h2>
+					<div class="on-sale" ng-if="product[2].on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>
+					<div class="price" ng-if="product[2].price_html" ng-bind-html="product[2].price_html"></div>
+					<div class="price" ng-if="!product[2].price_html" price="{{product[2].price}}"></div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

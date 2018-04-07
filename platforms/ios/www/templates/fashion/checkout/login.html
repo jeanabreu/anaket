@@ -1,0 +1,31 @@
+<ion-view title="{{$root.appLanguage.LOGIN_TEXT}}" class="checkout login-form checkout-login-page" hide-tabs>
+	<ion-content>
+		<h1 class="title">{{$root.appLanguage.Existing_Customer_TEXT}}</h1>
+		<form name="loginForm" ng-submit="doLogin(loginForm)" novalidate="">
+			<div class="list form-action">
+				<label class="item item-input">
+					<input type="text" name="user_login" ng-model="loginData.user_login" required placeholder="{{$root.appLanguage.USERNAME_TEXT}} / {{$root.appLanguage.EMAIL_TEXT}}">
+				</label>
+				<div class="invalid-required" ng-show="loginForm.user_login.$error.required && loginForm.$submitted">* {{$root.appLanguage.USERNAME_TEXT}} / {{$root.appLanguage.EMAIL_TEXT}} is required</div>
+				<label class="item item-input">
+					<input type="password" name="user_pass" ng-model="loginData.user_pass" placeholder="{{$root.appLanguage.PASSWORD_TEXT}}" required>
+				</label>
+				<div class="invalid-required" ng-show="loginForm.user_pass.$error.required && loginForm.$submitted">* {{$root.appLanguage.PASSWORD_TEXT}} is required</div>
+				<div class="button-action">
+					<button class="button" type="submit">{{$root.appLanguage.LOGIN_TEXT}}</button>
+					<div class="forgot-password" ng-click="openModalForgotPassword()">{{$root.appLanguage.FORGOT_PASSSWORD_TEXT}}</div>
+				</div>
+			</div>
+		</form>
+		<div class="create-user-action">
+			<div class="divider"></div>
+			<div class="text">{{$root.appLanguage.DONT_HAVE_AN_ACCOUNT}}</div>
+			<button class="button" ng-click="openModalRegister()">
+				{{$root.appLanguage.CREATE_ACCOUNT_TEXT}}
+			</button>
+		</div>
+	</ion-content>
+	<ion-footer-bar>
+		<button ng-click="nextStep()" class="button button-positive">{{$root.appLanguage.Continue_as_guest_TEXT}}</button>
+	</ion-footer-bar>
+</ion-view>

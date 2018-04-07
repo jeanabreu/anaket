@@ -1,0 +1,24 @@
+<ion-view title="{{categoryName}}">
+	<ion-content class="has-footer">
+		<ion-refresher
+			pulling-text="Pull to refresh..."
+			on-refresh="refreshCategoryData()">
+		</ion-refresher>
+		<div class="product-list">
+			<div class="product-item" ng-repeat="product in categoryData" ng-click="openProduct({{product.id}})">
+				<img actual-src="{{product.images[0].src}}" ng-src="img/placeholder.png">
+				<div class="meta text-center">
+					<h2 class="name" ng-bind-html="product.name"></h2>
+					<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>
+					<div class="price" ng-if="product.price_html" ng-bind-html="product.price_html"></div>
+					<div class="price" ng-if="!product.price_html" price="{{product.price}}"></div>
+				</div>
+			</div>
+		</div>
+		<ion-infinite-scroll
+			ng-if="canLoadMoreCategoryData"
+			on-infinite="loadMoreCategoryData()"
+			distance="5%">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

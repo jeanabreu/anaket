@@ -1,0 +1,50 @@
+<ion-view hide-back-button="true" class="home-page" title="Home" show-tabs>
+	<ion-nav-buttons side="left">
+		<!-- Toggle left side menu -->
+		<button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-nav-title>
+		<img class="home-logo" src="img/logo.png">
+	</ion-nav-title>
+	<ion-content class="has-footer">
+		<ion-slide-box  class="home-slider" on-slide-changed="slideHasChanged($index)">
+                        <ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1, 2, 3]">
+				<div class="slider-img">
+					<img actual-src="img/slider/slider-1.jpg" ng-src="img/placeholder.png" alt="">
+				</div>
+			</ion-slide>
+			<ion-slide ng-if="enableSliderFromServer" ng-repeat="slider in sliderList">
+				<div class="slider-img">
+					<img actual-src="{{slider.src}}" ng-src="" alt="">
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<div class="ads-text">
+			<div class="inner clearfix">
+				<div class="title">Free Shipping</div>
+				<div class="content">to the given address on order over <strong>150</strong> to all stores</div>
+			</div>
+		</div>
+
+		<h1 class="home-title">{{$root.appLanguage.LATEST_PRODUCTS_TEXT}}</h1>
+		
+		<div class="product-list">
+			<div class="product-item" ng-repeat="product in productData" ng-click="openProduct({{product.id}})">
+				<img actual-src="{{product.images[0].src}}" ng-src="img/placeholder.png">
+				<div class="meta text-center">
+					<h2 class="name" ng-bind-html="product.name"></h2>
+					<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>
+					<div class="price" ng-if="product.price_html" ng-bind-html="product.price_html"></div>
+					<div class="price" ng-if="!product.price_html" price="{{product.price}}"></div>
+				</div>
+			</div>
+		</div>
+		<ion-infinite-scroll
+			class="active"
+			immediate-check="false"
+			ng-if="canLoadMoreProductData"
+			on-infinite="loadMoreProductData()"
+			distance="5%">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

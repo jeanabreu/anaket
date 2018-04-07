@@ -1,0 +1,3 @@
+adding bootstrap
+
+Ionic core now has a boostrap method which will attempt to inject cordova.js automatically. This allows Android deploys to correctly reference cordova and cordova plugins.

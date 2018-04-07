@@ -1,0 +1,44 @@
+<ion-view hide-back-button="true" class="page-search products-view" title="{{$root.appLanguage.SEARCH_TEXT}}">
+	<ion-nav-buttons side="left">
+		<!-- Toggle left side menu -->
+		<button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-footer" scroll="false">
+		<div class="header-form-search">
+			<form name="searchForm" ng-submit="doSearch(searchForm)" novalidate="">
+				<div class="item-input-inset">
+					<div class="select-category">
+						<select ng-model="searchFormData.category">
+							<option value="all">All</option>
+							<option value="{{category.id}}" ng-repeat="category in categoryData">{{category.name}}</option>
+						</select>
+					</div>
+					<label class="item-input-wrapper" style="z-index: 33;">
+						<input type="search" ng-model="searchFormData.keyword" name="keyword" placeholder="{{$root.appLanguage.SEARCH_HERE}}">
+					</label>
+					<button type="submit" class="button button-small button-positive">
+						<i class="icon ion-search"></i>
+					</button>
+				</div>
+			</form>
+		</div>
+		<ion-content>
+			<div class="product-list clearfix">
+				<div class="product-item animated zoomIn" ng-repeat="product in searchData" ng-click="openProduct({{product.id}})">
+					<img actual-src="{{product.images[0].src}}" ng-src="img/placeholder.png">
+					<div class="meta">
+						<h2 class="name" ng-bind-html="product.name"></h2>
+						<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>
+						<div class="price" ng-if="product.price_html" ng-bind-html="product.price_html"></div>
+						<div class="price" ng-if="!product.price_html" price="{{product.price}}"></div>
+					</div>
+				</div>
+			</div>
+			<ion-infinite-scroll
+				ng-if="canLoadMoreSearchData"
+				on-infinite="loadMoreSearchData()"
+				distance="5%">
+			</ion-infinite-scroll>
+		</ion-content>
+	</ion-content>
+</ion-view>

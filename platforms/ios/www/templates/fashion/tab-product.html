@@ -1,0 +1,57 @@
+<ion-view title="{{product.name}}" id="single-product" class="product-detail" hide-tabs>
+	<ion-content>
+		<a class="button-info" ng-click="openModalInfo()">Info</a>
+		<ion-slide-box class="product-images" on-slide-changed="slideHasChanged($index)">
+			<ion-slide class="image" ng-repeat="(key,image) in product.images">
+				<img ng-click="viewZoomProductImage(image.src, product.name)" actual-src="{{ image.src }}" ng-class="key==0 ? 'single-main-img': ''" ng-src="img/placeholder.png" alt="{{ image.title }}">
+			</ion-slide>
+		</ion-slide-box>
+		<div class="product-meta padding">
+			<div class="row">
+				<div class="col-33">
+					<div class="price" ng-if="product.price_html" ng-bind-html="product.price_html"></div>
+					<div class="price" ng-if="!product.price_html" price="{{product.price}}"></div>
+				</div>
+				<div class="col-33">
+					<div ng-if="!isInWishlist" class="wishlist-button" ng-click="addProductToWishlist()">
+						Wishlist <i class="ion-heart"></i>
+					</div>
+					<div ng-if="isInWishlist" class="wishlist-button active" ng-click="addProductToWishlist()">
+						Wishlist <i class="ion-heart"></i>
+					</div>
+				</div>
+				<div class="col-33">
+					<div class="star-rating" ng-bind-html="trustAsHtml(product.rating_star_html);"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="list quantity">
+			<label class="item item-input item-select" ng-if="product.in_stock">
+				<span class="input-label"><strong>Quantity</strong></span>
+				<select ng-model="productFormData.quantity">
+					<option ng-repeat="i in getProductQuanity(productQuantity)  track by $index" value="{{$index+1}}">{{$index+1}}</option>
+				</select>
+			</label>
+		</div>
+
+		<div class="list" ng-if="product.type=='variable'" style="">
+			<h1 class="title">Choose Options</h1>
+			<label class="item item-variable-price" price="{{variationPrice}}" ng-if="product.type=='variable' && variationPrice  != ''"></label>
+			<label class="item item-input item-select" ng-repeat="(key, attribute) in product.attributes">
+				<div class="input-label">
+					<strong>{{attribute.name}}</strong>
+				</div>
+				<select ng-model="selectValue" ng-change="updateProductAttribute(key, selectValue)">
+					<option value="" >Choose an option</option>
+					<option ng-repeat="option in attribute.options" ng-selected="option.default"  value="{{option.value}}">{{option.name}}</option>
+				</select>
+			</label> 
+		</div>
+		<!--<div class="list" ng-if="product.type=='variable'" ng-bind-html="trustAsHtml(product.price_variable_html)"></div>-->
+	</ion-content>
+	<ion-footer-bar>
+		<button class="button button-positive" ng-if="product.in_stock" ng-click="addProductToCart()" add-to-cart-button>{{$root.appLanguage.ADD_TO_CART_TEXT}}</button>
+		<button class="button" ng-if="!product.in_stock"><strong>{{$root.appLanguage.OUT_OF_STOCK_TEXT}}</strong></button>
+	</ion-footer-bar>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view title="{{$root.appLanguage.WISHLISH_TEXT}} "  class="products-view">
+	<ion-content class="has-footer">
+		<div class="product-list clearfix wish">
+			<div class="product-item" ng-repeat="product in products" ng-click="openProduct({{product[2].id}})">
+				<div class="title-item">
+					<h2 style="font-size: 13px;color:#000;" class="name" ng-bind-html="product[2].name"></h2>
+					<p style="font-size:11px;" class="name" ng-bind-html="product[2].name"></p>
+				</div>
+				<div class="img" style="text-align: center;" >
+					<img style="width: 120px; height: 120px;" actual-src="{{product[2].images[0].src}}" ng-src="img/placeholder.png">
+				</div>
+				<div class="meta text-center">
+					<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>
+					<div class="price" ng-if="product[2].price_html" ng-bind-html="product[2].price_html"></div>
+					<div class="icon-wishlist" ng-if="!isInWishlist" ng-click="addProductToWishlist()">
+						<i class="ion-heart" style="font-size: 18px"></i>
+					</div>
+					<div class="button button-wishlish button-success" ng-if="isInWishlist" ng-click="addProductToWishlist()" >
+						<i class="ion-checkmark-round"></i>
+						{{$root.appLanguage.ADD_TO_WISHLIST_TEXT}}
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

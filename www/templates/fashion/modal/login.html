@@ -1,0 +1,33 @@
+<ion-modal-view class="modal-login is-modal">
+    <ion-content class="padding">
+    	<button class="button button-close" ng-click="closeModalLogin()" ng-if="isEnableFirstLogin() === false">
+			<i class="ion-android-close"></i>
+		</button>
+		<div class="logo">
+			<img src="img/logo.png">
+		</div>
+		<form name="loginForm" ng-submit="doLogin(loginForm)" novalidate="">
+			<div class="list form-action">
+				<label class="item item-input">
+					<input type="text" name="user_login" ng-model="loginData.user_login" required placeholder="{{$root.appLanguage.USERNAME_TEXT}} / {{$root.appLanguage.EMAIL_TEXT}}">
+				</label>
+				<div class="invalid-required" ng-show="loginForm.user_login.$error.required && loginForm.$submitted">* {{$root.appLanguage.USERNAME_TEXT}} / {{$root.appLanguage.EMAIL_TEXT}} {{$root.appLanguage.is_required_TEXT}}</div>
+				<label class="item item-input">
+					<input type="password" name="user_pass" ng-model="loginData.user_pass" placeholder="{{$root.appLanguage.PASSWORD_TEXT}}" required>
+				</label>
+				<div class="invalid-required" ng-show="loginForm.user_pass.$error.required && loginForm.$submitted">* {{$root.appLanguage.PASSWORD_TEXT}} {{$root.appLanguage.is_required_TEXT}}</div>
+				<div class="button-action">
+					<button class="button button-block button-positive" type="submit">{{$root.appLanguage.LOGIN_TEXT}}</button>
+					<div class="forgot-password" ng-click="openModalForgotPassword()">{{$root.appLanguage.FORGOT_PASSSWORD_TEXT}}</div>
+				</div>
+			</div>
+		</form>
+		<div class="create-user-action">
+			<div class="divider"></div>
+			<div class="text">{{$root.appLanguage.DONT_HAVE_AN_ACCOUNT}}</div>
+			<button class="button" ng-click="openModalRegister()">
+				{{$root.appLanguage.CREATE_ACCOUNT_TEXT}}
+			</button>
+		</div>
+    </ion-content>
+</ion-modal-view>

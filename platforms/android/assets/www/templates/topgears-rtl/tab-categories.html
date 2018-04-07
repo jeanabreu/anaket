@@ -1,0 +1,20 @@
+<ion-view title="{{pageTitle}}">
+	<ion-nav-buttons side="left">
+		<!-- Toggle left side menu -->
+		<button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-footer">
+		<div class="category-list clearfix">
+			<div class="row">
+				<div class="col col-50" ng-repeat="category in categoryData">
+					<div class="category-item clearfix animated zoomIn" ng-click="openCategory({{category.id}})">
+						<div class="image">
+							<img actual-src="{{category.image.src}}" ng-src="img/placeholder.png">	
+						</div>
+						<div class="title" ng-bind-html="category.name"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
