@@ -2,7 +2,7 @@ angular.module('starter')
 //config param of App
 .constant('appConfig', {
 
-    DOMAIN_URL: 'http://anaketdelivery.com',
+    DOMAIN_URL: 'http://anaket.delivery',
 	ADMIN_EMAIL: 'lb.market.sys@gmail.com',
         
 	CLIENT_ID_AUTH0: 'H62fCSFGxrbKTRwArIJRdRjuhFnscgN',
