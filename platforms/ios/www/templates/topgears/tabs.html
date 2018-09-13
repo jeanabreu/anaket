@@ -55,17 +55,17 @@ navigation history that also transitions its views in and out.
 				</a>
 			</div>
 			<ion-list>
-				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/order">
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/order" color: white;>
 					<i class="icon ion-ios-cart"></i>
 					{{$root.appLanguage.My_CART_TEXT}}
 				</ion-item>
-				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/wishlist">
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/wishlist" style="color: white; text-transform: uppercase;">
 					<i class="icon ion-heart"></i>
 					{{$root.appLanguage.WISHLIST_TEXT}}
 				</ion-item>
-				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/orders">
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/orders" >
 					<i class="icon ion-android-checkbox-outline"></i>
-					{{$root.appLanguage.ORDER_STATUS_TEXT}}
+					<span style="color: white; text-transform: uppercase;">{{$root.appLanguage.ORDER_STATUS_TEXT}}</span>
 				</ion-item>
 				<!--TAB SETTINS
 				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true" href="#/tab/settings">
@@ -91,9 +91,9 @@ navigation history that also transitions its views in and out.
 					<i class="icon ion-help-buoy"></i>
 					{{$root.appLanguage.ABOUT_US_TEXT}}
 				</ion-item>-->
-				<ion-item menu-toggle="left" href="#tab/contactus">
+				<ion-item menu-toggle="left" href="#tab/contactus" style="color: white; text-transform: uppercase;">
 					<i class="icon ion-information-circled"></i>
-					{{$root.appLanguage.CONTACT_US_TEXT}}
+					<span style="color: white; text-transform: uppercase;"> {{$root.appLanguage.CONTACT_US_TEXT}} </span>
 				</ion-item>
 				<!--<ion-item menu-toggle="left" href="#tab/blog">
 					<i class="icon ion-information-circled"></i>
@@ -117,8 +117,8 @@ navigation history that also transitions its views in and out.
 					</div>
 			<div style="text-align: center;margin-top: 200px;" class="copyrights">
 				<div class="divider"></div>
-				<div class="text">Copyright 2017<a style="color:#38e8c2;" class="" ng-click="openModalLogin()">
-					iWayRuby.com
+				<div class="text">Copyright 2018<a style="color: #333630;" class="" ng-click="openModalLogin()">
+					GestionSimple.com
 				</a><br>Derechos Reservados.</div>
 				
 			</div>

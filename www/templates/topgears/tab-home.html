@@ -8,23 +8,23 @@
             
 			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
 				<div class="slider-img">
-					<img actual-src="https://res.cloudinary.com/simpleview/image/fetch/c_fill,f_auto,h_220,q_75,w_375/https://res.cloudinary.com/simpleview/image/upload/crm/scottsdale/OT-Farmers-Market-Stock-Photo_cb93d5d9-5056-b3a8-490b8c1825661ad8.jpg" ng-src="img/placeholder.png" alt="">
+					<img actual-src="https://anaket.delivery/app/slider/slider1.png" ng-src="img/placeholder.png" alt="">
 				</div>
 			</ion-slide>
 
 			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
 				<div class="slider-img">
-					<img actual-src="img/topgears/slider-1.png" ng-src="img/placeholder.png" alt="">
+					<img actual-src="https://anaket.delivery/app/slider/slider2.png" ng-src="img/placeholder.png" alt="">
 				</div>
 			</ion-slide>
 			
 			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
 				<div class="slider-img">
-					<img actual-src="img/slider/slider-1.jpg" ng-src="img/placeholder.png" alt="">
+					<img actual-src="https://anaket.delivery/app/slider/slider3.png" ng-src="img/placeholder.png" alt="">
 				</div>
 			</ion-slide>
 			
-			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
+			<!--<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
 				<div class="slider-img">
 					<img actual-src="http://images.travbuddy.com/hotel_69961786.jpg" ng-src="img/placeholder.png" alt="">
 				</div>
@@ -40,11 +40,13 @@
 				<div class="slider-img">
 					<img actual-src="{{slider.src}}" ng-src="" alt="">
 				</div>
-			</ion-slide>
+			</ion-slide>-->
 		</ion-slide-box>
 		<div class="ads-text">
+		<!--<div style="background:#b3c45a;">-->
 			<div class="inner clearfix">
-				<div class="title "><i class="fa fa-paper-plane-o" aria-hidden="true"></i>DISPONIBLES <span> en todo </span><span class="price">SANTO DOMINGO</span></div>
+				<!--<div class="title"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>DISPONIBLES <span> en todo </span><span class="price">SANTO DOMINGO</span></div>-->
+				<div class="title"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>DISPONIBLES EN TODO SANTO DOMINGO</div>
 			</div>
 		</div>
 		<div class="product-list-container">
@@ -52,23 +54,23 @@
 				<div class="tabs tabs-menu tabs-home">
 					
 					<div class="tab-item active">
-						<a class="tab-item active" href="#">
+						<a class="tab-item active" href="#" style="font-size: 14px !important;">
 							{{$root.appLanguage.LATEST_TEXT}}
 						</a>
 					</div>
 					
 					<div class="tab-item">
-						<a class="tab-item " href="#">
+						<a class="tab-item " href="#" style="font-size: 14px !important;">
 							{{$root.appLanguage.BEST_SELLER_TEXT}}
 						</a>
 					</div>
-					<!--
+					
 					<div class="tab-item">
-						<a class="tab-item" href="#">
+						<a class="tab-item" href="#" style="font-size: 14px !important;">
 							{{$root.appLanguage.HOT_DEALS_TEXT}}
 						</a>
 					</div>
-					-->
+					
 				</div>
 			</div>
 		</div>
@@ -79,7 +81,7 @@
 					<p style="font-size:11px;" class="name" ng-bind-html="product.name"></p>
 				</div>
 				<div class="img" style="text-align: center;" >
-					<!--<img style="width: 120px; height: 120px;" actual-src="{{product.images[0].src}}" ng-src="img/placeholder.png">-->
+					<img style="width: 120px; height: 120px;" actual-src="{{product.images[0].src}}" ng-src="img/placeholder.png">
 					
 				</div>
 				<div class="meta text-center">

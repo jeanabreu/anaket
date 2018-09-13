@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'ionic.cloud', 'starter.control
 // add this section:
 .run(function(){
   Pro.init('d0177a1a', {
-      appVersion: '1.1.1'
+      appVersion: '1.1.2'
   });
 })
 
