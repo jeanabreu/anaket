@@ -1,0 +1,148 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+
+
+-->
+<style>
+	.newm {
+			color:#fff;
+			margin-left: 15px;
+			font-size: 18px;
+			border: none !important;
+			border-bottom: none !important;
+			text-transform: uppercase;
+		  }
+	.newm2 {
+			color:black;
+			margin-left: 15px;
+			font-size: 18px;
+			border: none !important;
+			border-bottom: none !important;
+		  }
+</style>
+
+<ion-side-menus enable-menu-with-back-views="false" ng-if="isEnableFirstLogin() === false || isLoggedIn() === true">
+	<ion-side-menu-content edge-drag-threshold="false" drag-content="false">
+		<ion-nav-bar class="bar-stable is-header" align-title="center" style="background: #323232 !important;">
+			<ion-nav-back-button>
+			</ion-nav-back-button>
+			<ion-nav-buttons side="right">
+				<div id="wishlist" class="wishlist search">
+					<a href="#/tab/wishlist">
+						<i class="ion-heart"></i>
+						<span class="count" ng-if="$root.wishlistQuantity > 0">{{$root.wishlistQuantity}}</span>
+					</a>
+				</div>
+				<div id="shoppingcart" class="shoppingcart">
+					<a href="#/tab/cart">
+						<i class="ion-bag"></i>
+						<span class="count" ng-if="$root.cartQuantity > 0">{{$root.cartQuantity}}</span>
+					</a>
+				</div>
+			</ion-nav-buttons>
+		</ion-nav-bar>
+
+		<ion-nav-view name="mainContent"></ion-nav-view>
+
+		<ion-tabs class="tabs-icon-top tabs-color-active-positive {{$root.hideTabs}}">
+			<!-- Home Tab -->
+			<ion-tab  icon-off="ion-ios-home" icon-on="ion-ios-home" href="#/tab/home">
+			</ion-tab>
+			<!-- Search Tab -->
+			<ion-tab icon-off="ion-search" icon-on="ion-search" href="#/tab/search">
+			</ion-tab>
+			<!-- Categories Tab -->
+			<ion-tab  icon-off="ion-ios-keypad" icon-on="ion-ios-keypad" href="#/tab/categories/all">
+			</ion-tab>
+			<!-- Menu Tab -->
+			<ion-tab icon-off="ion-android-person" icon-on="ion-android-person" ng-click="toggleLeftSideMenu()">
+			</ion-tab>
+		</ion-tabs>
+	</ion-side-menu-content>
+
+	<ion-side-menu side="left" class="is-slidemenu" style="background: #b3c45a;">
+		<ion-content>
+			<div class="header-menu" ng-if="isLoggedIn()===false">
+				<div class="logo">
+					<img src="img/topgears/logo2.png" alt="">
+				</div>
+			</div>
+			<div class="header-menu logged-in clearfix" ng-if="isLoggedIn()===true">
+				<a href="#/tab/account" menu-toggle="left" class="avatar">
+					<img src="img/topgears/logo2.png" alt="">
+				</a>
+			</div>
+			<ion-list >
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/order" >
+					<i class="icon ion-ios-cart"></i>
+					{{$root.appLanguage.My_CART_TEXT}}
+				</ion-item>
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/wishlist">
+					<i class="icon ion-heart"></i>
+					{{$root.appLanguage.WISHLIST_TEXT}}
+				</ion-item>
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true"  href="#/tab/orders">
+					<i class="icon ion-android-checkbox-outline"></i>
+					{{$root.appLanguage.ORDER_STATUS_TEXT}}
+				</ion-item>
+				<!--TAB SETTINS
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===true" href="#/tab/settings">
+					<i class="icon ion-gear-a"></i>
+					{{$root.appLanguage.SETTINGS_TEXT}}
+				</ion-item>
+				-->
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===false" href="#/tab/home">
+					<!--<i class="icon ion-briefcase"></i>-->
+					<span class="newm">{{$root.appLanguage.HOME_TEXT}}</span>
+				</ion-item>
+	
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===false" href="#/tab/promotions">
+					<!--<i class="icon ion-gear-a"></i>-->
+					<span class="newm">{{$root.appLanguage.FINDASTORE_TEXT}}</span>
+				</ion-item>
+	
+				<ion-item menu-toggle="left" ng-if="isLoggedIn()===false" href="#/tab/categories/all">
+					<!--<i class="icon ion-android-checkbox-outline"></i>-->
+					<span class="newm">{{$root.appLanguage.CATEGORIES_TEXT}}</span>
+				</ion-item>
+				<!--<ion-item menu-close onclick="window.open('http://138.197.105.110/sobre-nosotros/', '_blank', 'location=no');return false;">
+					<i class="icon ion-help-buoy"></i>
+					{{$root.appLanguage.ABOUT_US_TEXT}}
+				</ion-item>-->
+				<ion-item menu-toggle="left" href="#tab/contactus">
+					<!--<i class="icon ion-information-circled"></i>-->
+					<span class="newm">{{$root.appLanguage.CONTACT_US_TEXT}}</span>
+				</ion-item>
+				<!--<ion-item menu-toggle="left" href="#tab/blog">
+					<i class="icon ion-information-circled"></i>
+					Blog
+				</ion-item>-->
+				<ion-item ng-if="isLoggedIn()===true" menu-toggle="left" href="#/tab/account">
+					<!--<i class="icon ion-compose"></i>-->
+					<span class="newm">{{$root.appLanguage.EDIT_PROFILE}}</span>
+				</ion-item>
+				<ion-item ng-if="isLoggedIn()===false" menu-close ng-click="openModalLogin()" href="#/tab/home">
+					<!--<i class="icon ion-power"></i>-->
+					<span class="newm2">{{$root.appLanguage.LOGIN_TEXT}}</span>
+				</ion-item>
+				<ion-item ng-if="isLoggedIn()===true" menu-close ng-click="doLogout()" href="#/tab/home">
+					<!--<i class="icon ion-power"></i>-->
+					<span class="newm">{{$root.appLanguage.LOGOUT_TEXT}}</span>
+				</ion-item>
+			</ion-list>
+			<div class="button-action">
+						<button class="button button-block button-positive btn-login" type="submit" ng-if="isLoggedIn()===true" menu-close ng-click="doLogout()" style="width: 99%;margin-top: 50px;border-radius: 50px;color: #c3c3c3;background-color:#fff!important;text-transform: uppercase;`" href="#/tab/home">{{$root.appLanguage.SIGN_OUT}}</button>
+					</div>
+			<div style="text-align: center;margin-top: 200px;" class="copyrights">
+				<div class="divider"></div>
+				<div class="text" style="color:#fff;">Copyright 2018<a style="color:#000000; font-weight: bold;" class="" ng-click="openModalLogin()">
+					GestionSimple.com
+				</a><br>Derechos Reservados.</div>
+				
+			</div>
+		</ion-content>
+	</ion-side-menu>
+
+</ion-side-menus>

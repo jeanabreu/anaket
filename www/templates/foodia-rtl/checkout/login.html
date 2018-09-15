@@ -1,0 +1,52 @@
+<ion-view title="{{$root.appLanguage.LOGIN_TEXT}}" class="checkout login-form checkout-login-page" hide-tabs>
+	<ion-content>
+		<div class="modal-login-box ">
+			<div class="social-action clearfix">
+				<div class="social-fb">
+					<a href="#">
+						<i class="icon ion-social-facebook"></i>
+						<span >{{$root.appLanguage.LOGIN_WITH}}</span>
+						<span class="text">{{$root.appLanguage.FACEBOOK}}</span>
+					</a>
+				</div>
+				<div class="social-gg">
+					<a href="#">
+						<i class="icon ion-social-googleplus"></i>
+						<span >{{$root.appLanguage.LOGIN_WITH}}</span>
+						<span class="text">{{$root.appLanguage.GOOGLE}}</span> 
+					</a>
+				</div>
+			</div>
+			<form name="loginForm" ng-submit="doLogin(loginForm)" novalidate="">
+				<div class="list form-action">
+					<label class="item item-input">
+						<input type="text" name="user_login" ng-model="loginData.user_login" required placeholder="{{$root.appLanguage.USERNAME_TEXT}} / {{$root.appLanguage.EMAIL_TEXT}}">
+					</label>
+					<div class="invalid-required" ng-show="loginForm.user_login.$error.required && loginForm.$submitted">* {{$root.appLanguage.USERNAME_TEXT}} / {{$root.appLanguage.EMAIL_TEXT}} is required</div>
+					<label class="item item-input">
+						<input type="password" name="user_pass" ng-model="loginData.user_pass" placeholder="{{$root.appLanguage.PASSWORD_TEXT}}" required>
+					</label>
+					<div class="invalid-required" ng-show="loginForm.user_pass.$error.required && loginForm.$submitted">* {{$root.appLanguage.PASSWORD_TEXT}} is required</div>
+					<div class="button-action">
+						<label >
+							<input type="checkbox" >{{$root.appLanguage.REMEMBER}}
+						</label>
+						<div class="forgot-password" ng-click="openModalForgotPassword()">{{$root.appLanguage.FORGOT_PASSSWORD_TEXT}}</div>
+						<button class="button btn-login button-block" type="submit">{{$root.appLanguage.LOGIN_TEXT}}</button>
+						
+					</div>
+				</div>
+			</form>
+			<div class="create-user-action buttons">
+				<div class="divider"></div>
+				<button class="button button-block" ng-click="openModalRegister()">
+					{{$root.appLanguage.CREATE_ACCOUNT_TEXT}}
+				</button>
+				<button class="button button-close" ng-click="nextStep()">
+					<span class="text-center">{{$root.appLanguage.CONTINUE_AS_GUEST_TEXT}}</span>
+					<i class="icon ion-arrow-right-c"></i>
+				</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

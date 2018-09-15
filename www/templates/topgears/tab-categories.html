@@ -1,0 +1,49 @@
+<style>
+	.titulo
+	{
+		position: absolute;
+		top: 40%;
+		left: 10%;
+		right: 10%;
+		text-transform: uppercase;
+		/*left: 15px;
+		text-transform: none;*/
+		color: #fff;
+		font-weight: bold;
+		/*z-index: 13;*/
+		align-content: center;
+		/*margin: 0 auto;*/
+		text-align: center;
+		vertical-align: middle;
+
+		text-decoration: underline;
+  		-webkit-text-decoration-color: #b3c45a;
+		  text-decoration-color: #b3c45a;
+		  text-decoration-style: solid 5px;
+		}
+</style>
+
+<ion-view title="{{pageTitle}}">
+	<ion-nav-buttons side="left">
+		<!-- Toggle left side menu -->
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-footer">
+
+			<div class="promotion-img" >
+					<img actual-src="http://anaket.delivery/app/banner-cat/Promo-ofertas.png" ng-src="img/placeholder.png" alt="">
+			</div>
+		 <div class="category-list clearfix">
+			<div class="row">
+				<div class="col col-50" ng-repeat="category in categoryData">
+					<div class="category-item clearfix animated zoomIn" ng-click="openCategory({{category.id}})">
+						<div class="image">
+							<img actual-src="{{category.image.src}}" ng-src="img/placeholder.png">	
+						</div>
+						<div class="titulo" ng-bind-html="category.name" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,160 @@
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Merienda|Reenie+Beanie|Saira+Semi+Condensed');
+</style> 
+
+<ion-modal-view class="modal-login is-modal">
+	
+
+	<ion-content class="has-footer" style="">
+		<ion-slide-box  class="home-slider" on-slide-changed="slideHasChanged($index)">
+			
+			
+
+			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]" style="text-align:center; color:white;">
+				
+				
+				<h2 style="color:white;font-family: 'Saira Semi Condensed', sans-serif;">Gracias por elegir</h2> 
+				<br><br>
+				<div id="logo">
+						<img style="width:110%;" src="img/topgears/Anaket_negativo.png" alt="">
+				</div>
+				<br><br>
+				<p>
+					<h1 style="color:white;font-family: 'Reenie Beanie', cursive;">"La plataforma elegida por cientos de personas para realizar sus compras..."</h1>
+				</p>
+				<p>
+				</p><br><br>
+			</ion-slide>
+
+
+			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]" style="text-align:center; color:white;">
+					<h2 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Genial!!...pero como comienzo?</h2> 
+					
+					<div id="logo">
+							<img src="https://cdn2.iconfinder.com/data/icons/medical-icons-110/512/medical_icon_3-128.png" alt="">
+					</div>
+					<p>
+						
+									<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif; font-size:16px;">Solo 4 Pasos!</h3>
+									<ol style="text-align:left; font-family: 'Saira Semi Condensed', sans-serif; font-size:16px;">
+									  <li>Crea una Cuenta!</li>
+									  <li>Selecciona los Articulos que desees.</li>
+									  <li>Ingresa tus datos de envio y pago.</li>
+									  <li>Consulta el Estatus de tu pedido por las diferentes vias que ofrecemos.</li>
+									</ol>
+					</p>
+					<p>
+					</p><br><br>
+
+			</ion-slide>
+			
+
+			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]" style="text-align:center; color:white;">
+
+				<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Contactanos:</h3>
+				
+					<div>
+							<img style="vertical-align:middle" src="https://cdn3.iconfinder.com/data/icons/social-media-2110/64/Website_Link-01-32.png">
+							<span style="">www.AnaketDelivery.com</span>
+					</div>
+				
+					
+					
+					<div>
+						<img style="vertical-align:middle" src="https://cdn3.iconfinder.com/data/icons/social-media-2110/64/Gmail-01-32.png">
+						<span style="">info@anaketdelivery.com</span>
+					</div>
+
+					<div>
+						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/WhatsApp-01-32.png">
+						<span style="">+ 1.809.123.4567</span>
+					</div>
+
+					<br><br>
+		
+					<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Redes Sociales</h3>
+					
+					<div>
+						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Facebook-01-64.png">
+						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Twitter-01-64.png">
+						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Instagram-01-64.png">
+						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Google_Plus-01-64.png">
+					</div>
+					<br><br>
+					<h1 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">¿Estas listo?</h1>	  
+
+			</ion-slide>
+
+
+			<!--<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
+				<div class="slider-img">
+					<img actual-src="img/slider/slider-1.jpg" ng-src="img/placeholder.png" alt="">
+				</div>
+			</ion-slide>-->
+			
+			<!--LOGIN BEGIN-->
+
+			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]">
+					
+				
+							<!--<div style="padding-bottom: 10px" class="logo">
+								<img src="img/topgears/logo.png" alt="">
+							</div>
+							<h4 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;text-align:center; ">Accede a la App</h3>-->
+								<div class="modal-login-box">
+									<form name="loginForm" ng-submit="doLogin(loginForm)" novalidate="">
+										<div class="form-action" style="color:#fff;">
+											<label class="item item-input login">
+												<input class="login" type="text" name="user_login" ng-model="loginData.user_login" required placeholder="{{$root.appLanguage.USERNAME_TEXT}}" style="color:#fff;">
+											</label>
+											<div class="invalid-required" ng-show="loginForm.user_login.$error.required && loginForm.$submitted">* {{$root.appLanguage.USERNAME_TEXT}} {{$root.appLanguage.is_required_TEXT}}</div>
+											<label class="item item-input login">
+												<input class="login" type="password" name="user_pass" ng-model="loginData.user_pass" placeholder="{{$root.appLanguage.PASSWORD_TEXT}}" required>
+											</label>
+											<div class="invalid-required" ng-show="loginForm.user_pass.$error.required && loginForm.$submitted">* {{$root.appLanguage.PASSWORD_TEXT}} {{$root.appLanguage.is_required_TEXT}}</div>
+											<div style="text-align: center;" class="forgot-password" ng-click="openModalForgotPassword()">{{$root.appLanguage.FORGOT_PASSSWORD_TEXT}}</div>
+											<div class="button-action">
+												<button style="letter-spacing: 2px;" class="button button-block button-positive btn-login" type="submit">{{$root.appLanguage.LOGIN_TEXT}}</button>
+											</div>
+											<div class="or">
+												<span>o</span>
+											</div>
+										</div>
+									</form>
+									<div class="social-action clearfix">
+													<div class="social-fb" ng-click="doLoginWithFacebook()">
+											<a href="#">
+												<span class="text">{{$root.appLanguage.SIGN_IN}}{{$root.appLanguage.FACEBOOK}}</span>
+											</a>
+										</div>
+													<div class="social-gg" ng-click="doLoginWithGoogle()">
+											<a href="#">
+												<span class="text">{{$root.appLanguage.SIGN_IN}}{{$root.appLanguage.GOOGLE}}</span> 
+											</a>
+										</div>
+									</div>
+									<div class="create-user-action buttons">
+										<div class="buttons" style="font-size: 12px;font-weight: 100;color: #000">
+											{{$root.appLanguage.DONT_HAVE_ACCOUNT_TEXT}}?  
+											<a style="color: #fff; font-weight: bold;" class="button-close button-positive button-register" ng-click="openModalRegister()">
+												{{$root.appLanguage.CREATE_ACCOUNT_TEXT}}
+											</a>
+										</div>
+									</div>
+									
+								</div>
+							
+
+				
+			</ion-slide>
+
+
+			<!--LOGIN END-->
+
+
+			
+
+		
+
+
+</ion-modal-view>

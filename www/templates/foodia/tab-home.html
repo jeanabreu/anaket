@@ -1,0 +1,76 @@
+<ion-view hide-back-button="true" class="home-page" title="FOODIA" show-tabs>
+	<ion-nav-buttons side="left">
+		<!-- Toggle left side menu -->
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-footer">
+		<ion-slide-box  class="home-slider" on-slide-changed="slideHasChanged($index)">
+                        <ion-slide ng-if="!enablesliderFromServer" ng-repeat="i in [1, 2, 3]">
+				<div class="slider-img">
+					<img actual-src="img/slider/slider-{{$index + 1}}.jpg" ng-src="img/placeholder.png" alt="">
+				</div>
+			</ion-slide>
+			<ion-slide ng-if="enableSliderFromServer" ng-repeat="slider in sliderList">
+				<div class="slider-img">
+					<img actual-src="{{slider.src}}" ng-src="" alt="">
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<div class="ads-text">
+			<div class="inner clearfix">
+				<div class="title pull-left"><i class="fa fa-phone-square" aria-hidden="true"></i>CALL TO ORDER ONLINE</div>
+				<div class="content pull-right">(801)-2345-6789</div>
+			</div>
+		</div>
+		
+		<div class="product-list-slider-style ">
+			<h1 class="home-title">{{$root.appLanguage.FEATURED_MEALS}}</h1>
+			<ion-slides  options="options" slider="data.slider">
+				<ion-slide-page ng-repeat="product in productData" ng-if="$index % 3 == 0" >
+					<div class="product-item-slider-style animated zoomIn" ng-click="openProduct({{productData[$index].id}})">
+						<img actual-src="{{productData[$index].images[0].src}}" ng-src="img/placeholder.png">
+						<div class="meta text-center">
+							<h2 class="name" ng-bind-html="productData[$index].name"></h2>
+							<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>
+							<div class="price text-center" ng-if="productData[$index].price_html" ng-bind-html="productData[$index].price_html"></div>
+							<div class="price text-center" ng-if="!productData[$index].price_html" price="{{productData[$index].price}}"></div>
+						</div>
+					</div>
+					<div ng-if="productData.length > ($index + 1)" class="product-item-slider-style animated zoomIn" ng-click="openProduct({{productData[$index + 1].id}})">
+						<img actual-src="{{productData[$index + 1].images[0].src}}" ng-src="img/placeholder.png">
+						<div class="meta text-center">
+							<h2 class="name" ng-bind-html="productData[$index + 1].name"></h2>
+							<!--<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>-->
+							<div class="price text-center" ng-if="productData[$index + 1].price_html" ng-bind-html="productData[$index + 1].price_html"></div>
+							<div class="price text-center" ng-if="!productData[$index + 1].price_html" price="{{productData[$index + 1].price}}"></div>
+						</div>
+					</div>
+					<div ng-if="productData.length > ($index + 2)" class="product-item-slider-style animated zoomIn" ng-click="openProduct({{productData[$index + 2].id}})">
+						<img actual-src="{{productData[$index + 2].images[0].src}}" ng-src="img/placeholder.png">
+						<div class="meta text-center">
+							<h2 class="name" ng-bind-html="productData[$index + 2].name"></h2>
+							<!--<div class="on-sale" ng-if="product.on_sale">{{$root.appLanguage.PRODUCT_SALE_TEXT}}</div>-->
+							<div class="price text-center" ng-if="productData[$index + 2].price_html" ng-bind-html="productData[$index + 2].price_html"></div>
+							<div class="price text-center" ng-if="!productData[$index + 2].price_html" price="{{productData[$index + 2].price}}"></div>
+						</div>
+					</div>
+				</ion-slide-page>
+			</ion-slides>
+		</div>
+		
+		<div class="banner-list">
+			<div class="banner-item">
+				<img actual-src="img/banner/banner-1.png" ng-src="img/placeholder.png">
+				<a href="#" class="btn-transparent">TODAY SPECIALS</a>
+			</div>
+			<div class="banner-item" >
+				<img actual-src="img/banner/banner-2.png" ng-src="img/placeholder.png">
+				<a href="#" class="btn-transparent">BUY 1 GET 1 FREE</a>
+			</div>
+			<div class="banner-item">
+				<img actual-src="img/banner/banner-3.png" ng-src="img/placeholder.png">
+				<a href="#" class="btn-transparent">BEST SELLER</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
