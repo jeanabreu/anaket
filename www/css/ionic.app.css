@@ -14352,7 +14352,7 @@ dd {
 .modal-login,
 .modal-register,
 .login-form {
-  background: url(../img/topgears/bg.png) no-repeat;
+  background: #afc53a;
   background-size: cover; }
   .modal-login ion-content .form-action label,
   .modal-register ion-content .form-action label,

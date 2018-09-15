@@ -1,5 +1,38 @@
 <style>
 	@import url('https://fonts.googleapis.com/css?family=Merienda|Reenie+Beanie|Saira+Semi+Condensed');
+
+.container_new {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 14px;
+}
+.bottom {
+    position: absolute;
+	top: 75%;
+	
+	
+	width: 100%;
+   /* transform: translate(-50%, -50%);*/
+}
+
+.blocker
+{
+	display: block;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+	
+	cursor: pointer;
+    text-align: center;
+}
+
 </style> 
 
 <ion-modal-view class="modal-login is-modal">
@@ -13,35 +46,45 @@
 			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]" style="text-align:center; color:white;">
 				
 				
-				<h2 style="color:white;font-family: 'Saira Semi Condensed', sans-serif;">Gracias por elegir</h2> 
+				<h3 style="color:#323232;font-family: 'Saira Semi Condensed', sans-serif;">¡GRACIAS POR ELEGIR!</h3> 
 				<br><br>
 				<div id="logo">
 						<img style="width:110%;" src="img/topgears/Anaket_negativo.png" alt="">
 				</div>
-				<br><br>
+				
 				<p>
-					<h1 style="color:white;font-family: 'Reenie Beanie', cursive;">"La plataforma elegida por cientos de personas para realizar sus compras..."</h1>
+					<h4 style="color:#323232;">www.anaket.delivery</h4>
 				</p>
+				<p>
+					</p>
+				<br>	
+				<div class="container_new">
+					<img src="img/topgears/cuadro-grande-negro.png" alt="" style="width:100%;">
+					<div class="centered">
+						La plataforma elegida por cientos de personas para realizar sus compras.
+					</div>
+				</div>
 				<p>
 				</p><br><br>
 			</ion-slide>
 
 
 			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]" style="text-align:center; color:white;">
-					<h2 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Genial!!...pero como comienzo?</h2> 
+					<h3 style="color:#323232;">¡GENIALl!...PERO<br>COMÓ COMIENZO?</h3> 
 					
-					<div id="logo">
-							<img src="https://cdn2.iconfinder.com/data/icons/medical-icons-110/512/medical_icon_3-128.png" alt="">
+					<div class="container_new">
+						<img src="img/topgears/usuariopre.png" alt="" style="width:100%;">
+						<div class="bottom">
+							<h4 style="color:#323232;">¡SON SOLÓ 4 PASOS!</h4> 
+						</div>
 					</div>
-					<p>
-						
-									<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif; font-size:16px;">Solo 4 Pasos!</h3>
-									<ol style="text-align:left; font-family: 'Saira Semi Condensed', sans-serif; font-size:16px;">
-									  <li>Crea una Cuenta!</li>
-									  <li>Selecciona los Articulos que desees.</li>
-									  <li>Ingresa tus datos de envio y pago.</li>
-									  <li>Consulta el Estatus de tu pedido por las diferentes vias que ofrecemos.</li>
-									</ol>
+					<p style="color:#fff; text-align:left; line-height: 30px;">
+
+									<span style="color:#323232">1. </span>Crea una Cuenta! <br>
+									<span style="color:#323232">2. </span>Selecciona los Articulos que desees. <br>
+									<span style="color:#323232">3. </span>Ingresa tus datos de envio y pago. <br>
+									<span style="color:#323232">4. </span>Consulta el Estatus de tu pedido por las diferentes vias.<br>
+									
 					</p>
 					<p>
 					</p><br><br>
@@ -51,34 +94,36 @@
 
 			<ion-slide ng-if="!enableSliderFromServer" ng-repeat="i in [1]" style="text-align:center; color:white;">
 
-				<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Contactanos:</h3>
-				
+				<h3 style="color:#323232;">CONTÁCTANOS:</h3>
+				<div style="color:#323232; font-size: 17px;text-align: left;">
 					<div>
-							<img style="vertical-align:middle" src="https://cdn3.iconfinder.com/data/icons/social-media-2110/64/Website_Link-01-32.png">
-							<span style="">www.AnaketDelivery.com</span>
+							<img style="vertical-align:middle;width: 32px;height: px;" src="img/topgears/Link.png">
+							<span style="text-align: left;">www.anaket.delivery</span>
 					</div>
 				
 					
 					
 					<div>
-						<img style="vertical-align:middle" src="https://cdn3.iconfinder.com/data/icons/social-media-2110/64/Gmail-01-32.png">
-						<span style="">info@anaketdelivery.com</span>
+						<img style="vertical-align:middle;width: 32px;height: 32px;" src="img/topgears/mail-gris.png">
+						<span style="text-align: left">info@anaketdelivery.com</span>
 					</div>
 
 					<div>
-						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/WhatsApp-01-32.png">
-						<span style="">+ 1.809.123.4567</span>
+						<img style="vertical-align:middle;width: 32px;height: 32px;" src="img/topgears/whatsapp.png">
+						<span style="text-align: left">+ 1.809.123.4567</span>
 					</div>
-
+				</div>		
 					<br><br>
+					<div class="blocker">
 		
-					<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Redes Sociales</h3>
-					
-					<div>
-						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Facebook-01-64.png">
-						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Twitter-01-64.png">
-						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Instagram-01-64.png">
-						<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Google_Plus-01-64.png">
+						<h3 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">Redes Sociales</h3>
+						
+						<div>
+							<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Facebook-01-64.png">
+							<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Twitter-01-64.png">
+							<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Instagram-01-64.png">
+							<img style="vertical-align:middle" src="https://cdn4.iconfinder.com/data/icons/social-media-2110/64/Google_Plus-01-64.png">
+						</div>
 					</div>
 					<br><br>
 					<h1 style="color:white; font-family: 'Saira Semi Condensed', sans-serif;">¿Estas listo?</h1>	  
